@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重生之我在古代卖年货</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-almond: #F0D9C0;
+            --color-gold: #EBB559;
+            --color-burnt-orange: #B24425;
+            --color-terracotta: #CF743C;
+            --color-dark-brown: #4A3728;
+            --color-ink: #1A130F;
+        }
+        body {
+            background-color: var(--color-ink);
+            color: var(--color-dark-brown);
+            margin: 0;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            /* 全局采用宋体/衬线体系统字体 */
+            font-family: STSong, "Songti SC", "SimSun", "STZhongsong", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+        }
+        .game-font-title { font-family: 'Ma Shan Zheng', cursive; }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/handmade-paper.png');
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 500;
+        }
+
+        .game-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1vh;
+        }
+        
+        .aspect-box {
+            position: relative;
+            width: 98vw;
+            height: calc(98vw * 9 / 16);
+            max-width: 1600px;
+            max-height: 900px;
+            background-color: var(--color-almond);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            border: 8px solid #3E2723;
+            border-image: linear-gradient(to bottom, #5C4033, #1A130F) 1;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (max-aspect-ratio: 16/10) {
+            .aspect-box {
+                height: 98vh;
+                width: calc(98vh * 1.4);
+                max-width: 98vw;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .aspect-box { border: 4px solid #3E2723; }
+        }
+        
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--color-burnt-orange); border-radius: 10px; opacity: 0.2; }
+
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .dice-shake { animation: shake 0.1s infinite; }
+        @keyframes shake {
+            0% { transform: translate(1px, 1px); }
+            50% { transform: translate(-1px, -1px); }
+            100% { transform: translate(1px, -1px); }
+        }
+
+        .selected-glow {
+            box-shadow: 0 0 20px rgba(178,68,37,0.4);
+            border-color: var(--color-burnt-orange) !important;
+            background-color: #fff !important;
+            transform: translateY(-2px);
+            z-index: 30;
+        }
+        
+        .scrollbar-custom::-webkit-scrollbar { width: 4px; }
+        .scrollbar-custom::-webkit-scrollbar-thumb { background: rgba(178,68,37,0.3); border-radius: 10px; }
+        
+        .text-shadow-subtle {
+            text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .marquee {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        @keyframes bounce-short {
+          0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+          40% {transform: translateY(-5px);}
+          60% {transform: translateY(-3px);}
+        }
+        .animate-bounce-short {
+          animation: bounce-short 1s ease-in-out;
+        }
+
+        /* 强制粗体在衬线体下的表现 */
+        .font-black { font-weight: 900; }
+        .font-bold { font-weight: 700; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
