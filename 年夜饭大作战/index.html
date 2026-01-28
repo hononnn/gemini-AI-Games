@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>年夜饭大作战</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 游戏封面 -->
+    <div class="game-cover" id="game-cover">
+        <div class="cover-content">
+            <img src="游戏封面.png" alt="游戏封面" class="cover-image">
+            <button id="start-game" class="start-button">开始游戏</button>
+        </div>
+    </div>
+    <div class="container">
+        <header>
+            <h1>年夜饭大作战</h1>
+            <div class="score-container">
+                <div class="score-box">
+                    <div class="label">分数</div>
+                    <div class="score" id="score">0</div>
+                </div>
+                <div class="score-box">
+                    <div class="label">最高分</div>
+                    <div class="score" id="best">0</div>
+                </div>
+            </div>
+        </header>
+        <div class="content-wrapper">
+            <div class="game-section">
+                <div class="controls">
+                    <button id="new-game">新游戏</button>
+                    <button id="undo">撤销</button>
+                </div>
+                <div class="game-container">
+                    <div class="game-board" id="game-board">
+                        <div class="grid-container">
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                        </div>
+                        <div class="tile-container" id="tile-container"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="instructions-section">
+                <div class="instructions">
+                    <h3>游戏说明</h3>
+                    <p>使用方向键或滑动屏幕移动饺子，相同的饺子会合成更高级的馅料！</p>
+                    <div class="recipe">
+                        <h4>包饺子流程：</h4>
+                        <div class="recipe-item">小麦 + 小麦 = 面粉</div>
+                        <div class="recipe-item">面粉 + 面粉 = 肉</div>
+                        <div class="recipe-item">肉 + 肉 = 肉馅</div>
+                        <div class="recipe-item">肉馅 + 肉馅 = 饺子</div>
+                        <div class="recipe-item">饺子 + 饺子 = 煮饺子</div>
+                        <div class="recipe-item">煮饺子 + 煮饺子 = 一盘饺子</div>
+                        <div class="recipe-item">一盘饺子 + 一盘饺子 = 年夜饭</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="game-over" id="game-over">
+            <div class="game-over-content">
+                <h2>游戏结束！</h2>
+                <p>最终分数：<span id="final-score">0</span></p>
+                <button id="restart">重新开始</button>
+            </div>
+        </div>
+        <!-- 成功通关屏幕 -->
+        <div class="success-screen" id="success-screen">
+            <div class="success-content">
+                <img src="成功通关.png" alt="成功通关" class="success-image">
+                <div class="success-text">恭喜您成功包完所有饺子！</div>
+                <button id="restart-success" class="success-button">再玩一次</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

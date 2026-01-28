@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>财神接元宝</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <!-- 游戏首页 -->
+    <div id="gameHome" class="game-home" tabindex="0">
+        <canvas id="homeCanvas" class="home-canvas"></canvas>
+        <h1 class="home-title">财神接元宝</h1>
+        <div class="home-decoration">
+            <div class="firecracker">🧨</div>
+            <div class="firecracker">🧨</div>
+        </div>
+        <button id="homeShareBtn" class="btn share-btn" tabindex="1">📤 分享</button>
+        <button id="homeStartBtn" class="btn home-btn" tabindex="2">开始游戏</button>
+        <div class="home-instructions">
+            <h3>游戏玩法：</h3>
+            <p>🎮 使用方向键左右移动财神</p>
+            <p>💰 接住元宝：+10分</p>
+            <p>🧧 接住红包：+5-20分</p>
+            <p>💣 接住炸弹：-10分</p>
+            <p>⏰ 游戏时间：60秒</p>
+        </div>
+    </div>
+    
+    <!-- 游戏主界面 -->
+    <div id="gameContainer" class="game-container" style="display: none;" tabindex="0">
+        <h1 class="game-title">财神接元宝</h1>
+        <div class="game-info">
+            <div class="score">分数: <span id="score">0</span></div>
+            <div class="time">时间: <span id="time">60</span>s</div>
+        </div>
+        <canvas id="gameCanvas" width="400" height="600" tabindex="1"></canvas>
+        <!-- 游戏结束分享按钮容器 -->
+        <div id="gameOverShareContainer" style="display: none;">
+            <button id="gameOverShareBtn" class="btn share-btn" tabindex="5">📤 分享战绩</button>
+        </div>
+        <div class="game-controls">
+            <button id="startBtn" class="btn" tabindex="2">开始游戏</button>
+            <button id="pauseBtn" class="btn" tabindex="3">暂停</button>
+            <button id="resetBtn" class="btn" tabindex="4">重置</button>
+        </div>
+        <!-- 移动端操作按钮 -->
+        <div class="mobile-controls">
+            <button id="leftBtn" class="mobile-btn left-btn" tabindex="6">←</button>
+            <button id="rightBtn" class="mobile-btn right-btn" tabindex="7">→</button>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <!-- 年夜饭像素图 -->
+  <rect width="32" height="32" fill="none"/>
+  <!-- 背景（夜晚） -->
+  <rect x="0" y="4" width="32" height="12" fill="#0A0A1E"/>
+  <!-- 烟花1 -->
+  <line x1="8" y1="4" x2="8" y2="8" stroke="#FF0000" stroke-width="1"/>
+  <line x1="6" y1="6" x2="10" y2="6" stroke="#FF0000" stroke-width="1"/>
+  <line x1="8" y1="4" x2="12" y2="8" stroke="#FFFFFF" stroke-width="1"/>
+  <line x1="8" y1="4" x2="4" y2="8" stroke="#FFFFFF" stroke-width="1"/>
+  <!-- 烟花2 -->
+  <line x1="24" y1="4" x2="24" y2="8" stroke="#FFD700" stroke-width="1"/>
+  <line x1="22" y1="6" x2="26" y2="6" stroke="#FFD700" stroke-width="1"/>
+  <line x1="24" y1="4" x2="28" y2="8" stroke="#FF0000" stroke-width="1"/>
+  <line x1="24" y1="4" x2="20" y2="8" stroke="#FF0000" stroke-width="1"/>
+  <!-- 桌子 -->
+  <rect x="2" y="16" width="28" height="12" fill="#D2B48C" stroke="#000000" stroke-width="1"/>
+  <!-- 大碗（饺子） -->
+  <ellipse cx="20" cy="20" rx="8" ry="6" fill="#FF69B4" stroke="#000000" stroke-width="1"/>
+  <ellipse cx="20" cy="20" rx="4" ry="3" fill="#FFF8DC" stroke="#000000" stroke-width="1"/>
+  <!-- 小碗（米饭） -->
+  <ellipse cx="10" cy="18" rx="4" ry="3" fill="#4682B4" stroke="#000000" stroke-width="1"/>
+  <ellipse cx="10" cy="18" rx="2" ry="1.5" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+</svg>

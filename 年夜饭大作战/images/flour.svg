@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <!-- 面粉像素图 -->
+  <rect width="32" height="32" fill="none"/>
+  <!-- 袋子主体 -->
+  <rect x="6" y="8" width="20" height="20" fill="#F5DEB3" stroke="#000000" stroke-width="1"/>
+  <!-- 面粉 -->
+  <polygon points="8,8 24,8 22,14 10,14" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+  <!-- 面粉颗粒 -->
+  <circle cx="10" cy="10" r="1" fill="#FFFFFF" stroke="#000000" stroke-width="0.5"/>
+  <circle cx="13" cy="10" r="1" fill="#FFFFFF" stroke="#000000" stroke-width="0.5"/>
+  <circle cx="16" cy="10" r="1" fill="#FFFFFF" stroke="#000000" stroke-width="0.5"/>
+  <circle cx="19" cy="10" r="1" fill="#FFFFFF" stroke="#000000" stroke-width="0.5"/>
+  <circle cx="22" cy="10" r="1" fill="#FFFFFF" stroke="#000000" stroke-width="0.5"/>
+  <!-- 文字（面粉） -->
+  <text x="16" y="22" font-family="Arial" font-size="8" text-anchor="middle" fill="#000000">面粉</text>
+</svg>

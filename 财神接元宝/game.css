@@ -1,0 +1,346 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.game-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 450px;
+    width: 100%;
+}
+
+.game-title {
+    color: #c70039;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.score {
+    color: #f37121;
+}
+
+.time {
+    color: #16697a;
+}
+
+#gameCanvas {
+    border: 4px solid #c70039;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #87ceeb, #e0f7fa);
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background: linear-gradient(45deg, #c70039, #ff5733);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* 焦点样式，用于键盘和遥控器导航 */
+.btn:focus,
+.game-container:focus,
+.game-home:focus,
+#gameCanvas:focus,
+.focused {
+    outline: 3px solid #ffd700;
+    outline-offset: 2px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+    transform: scale(1.05);
+    transition: all 0.2s ease;
+}
+
+/* 移除移动端按钮的焦点样式，避免触摸操作时显示 */
+@media (max-width: 480px) {
+    .mobile-btn:focus {
+        outline: none;
+    }
+    
+    .mobile-btn.focused {
+        outline: 3px solid #ffd700;
+        outline-offset: 2px;
+    }
+}
+
+.game-instructions {
+    background: #fff9c4;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #ffd54f;
+    font-size: 0.9em;
+    color: #8d6e63;
+}
+
+/* 游戏首页样式 */
+.game-home {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.home-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.home-title {
+    color: #c70039;
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: titleBounce 2s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes titleBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.home-decoration {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    padding: 0 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.firecracker {
+    font-size: 2em;
+    animation: firecrackerWave 1s ease-in-out infinite alternate;
+}
+
+.firecracker:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.firecracker:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+@keyframes firecrackerWave {
+    0% { transform: rotate(-10deg); }
+    100% { transform: rotate(10deg); }
+}
+
+.home-btn {
+    background: linear-gradient(45deg, #ff6b6b, #c70039);
+    font-size: 1.2em;
+    padding: 15px 40px;
+    margin: 20px 0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+/* 分享按钮样式 */
+.share-btn {
+    background: linear-gradient(45deg, #ffd700, #ffb300);
+    color: #c70039;
+    border: 2px solid #c70039;
+    padding: 8px 16px;
+    font-size: 0.85em;
+    border-radius: 20px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    opacity: 0.9;
+}
+
+.share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+}
+
+/* 首页分享按钮 */
+#homeShareBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+}
+
+/* 游戏结束分享按钮容器 */
+#gameOverShareContainer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+}
+
+/* 游戏界面分享按钮 */
+.game-container .share-btn {
+    margin-top: 10px;
+}
+
+.home-instructions {
+    background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+    padding: 20px;
+    border-radius: 15px;
+    border: 3px solid #ff9800;
+    margin-top: 20px;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+}
+
+.home-instructions h3 {
+    color: #c70039;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.home-instructions p {
+    margin: 8px 0;
+    font-size: 1em;
+    color: #5d4037;
+}
+
+/* 移动端操作按钮样式 */
+.mobile-controls {
+    display: none;
+    justify-content: space-between;
+    margin: 15px auto 0;
+    max-width: 300px;
+    padding: 0 20px;
+}
+
+.mobile-btn {
+    background: linear-gradient(45deg, #c70039, #ff5733);
+    color: white;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.mobile-btn:active {
+    transform: scale(0.95);
+    background: linear-gradient(45deg, #900c3f, #c70039);
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+    .game-container, .game-home {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    .game-title, .home-title {
+        font-size: 2em;
+    }
+    
+    #gameCanvas {
+        width: 100%;
+        height: auto;
+    }
+    
+    .game-controls {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    
+    .home-btn {
+        padding: 12px 30px;
+        font-size: 1.1em;
+    }
+    
+    .home-decoration {
+        padding: 0 20px;
+    }
+    
+    .firecracker {
+        font-size: 1.5em;
+    }
+    
+    .home-instructions {
+        padding: 15px;
+    }
+    
+    .home-instructions p {
+        font-size: 0.9em;
+    }
+    
+    /* 移动端显示操作按钮 */
+    .mobile-controls {
+        display: flex;
+    }
+}
